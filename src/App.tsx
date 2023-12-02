@@ -1,9 +1,17 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
+import PostList from './components/PostList';
 
 function App() {
-  const [posts, setPosts] = useState<any>([]);
+  interface Post {
+    id: number;
+    title: string;
+    content: string;
+    image_url: string;
+  }
+
+  const [posts, setPosts] = useState<Array<Post>>([]);
 
   const fetchPosts = () => {
     const response = axios.get('http://localhost:3000/api/v1/posts').then((response) => {
@@ -17,19 +25,9 @@ function App() {
     fetchPosts();
   }, []);
 
-  const htmlCode = posts.map((post: any) => {
-    return (
-      <li>
-        <p>{post.title}</p>
-        <p>{post.content}</p>
-        <img src={post.image_url} alt={post.title} />
-      </li>
-    );
-  });
-
   return (
     <div className="App">
-      <ul>{htmlCode}</ul>
+      <PostList posts={posts} />
     </div>
   );
 }
