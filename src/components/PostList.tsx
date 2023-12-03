@@ -9,7 +9,6 @@ interface Props {
     image_url: string;
   }>;
   onRemove: (id: number) => void;
-  //onShowPostDetail: (id: number) => void;
 }
 
 export default function PropList({ posts, onRemove }: Props) {
@@ -18,12 +17,6 @@ export default function PropList({ posts, onRemove }: Props) {
     axios.delete(`http://localhost:3000/api/v1/posts/${id}`).then((response) => {});
     onRemove(id);
   };
-
-  // const showPost = (id: number) => {
-  //   axios.get(`http://localhost:3000/api/v1/posts/${id}`).then((response) => {
-  //     onShowPostDetail(id);
-  //   });
-  //};
 
   const htmlCode = posts.map((post: any) => {
     return (
