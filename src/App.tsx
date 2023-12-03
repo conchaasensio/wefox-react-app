@@ -25,9 +25,17 @@ function App() {
     fetchPosts();
   }, []);
 
+  const removePost = (id: number) => {
+    setPosts(
+      posts.filter((post: any) => {
+        return post.id !== id;
+      })
+    );
+  };
+
   return (
     <div className="App">
-      <PostList posts={posts} />
+      <PostList posts={posts} onRemove={removePost} />
     </div>
   );
 }
