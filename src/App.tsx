@@ -39,8 +39,8 @@ function App() {
       <Routes>
         <Route path="/" element={<PostList posts={posts} onRemove={removePost} />} />
         <Route path="/detail/:id" element={<PostDetail posts={posts} />} />
+        <Route path="/create" element={<Form />} />
       </Routes>
-      <Form />
     </BrowserRouter>
   );
 }

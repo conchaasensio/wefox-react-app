@@ -25,7 +25,6 @@ export default function PropList({ posts, onRemove }: Props) {
         <p>{post.title}</p>
         <button onClick={() => removePost(post.id)}>Delete</button>
         <button onClick={() => navigate(`/detail/${post.id}`)}>More details</button>
-        <button>Add post</button>
       </li>
     );
   });
@@ -33,6 +32,7 @@ export default function PropList({ posts, onRemove }: Props) {
   return (
     <div>
       <ul>{htmlCode}</ul>
+      <button onClick={() => navigate('/create')}>Create post</button>
     </div>
   );
 }
