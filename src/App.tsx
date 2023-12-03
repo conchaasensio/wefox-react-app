@@ -4,7 +4,7 @@ import './App.css';
 import axios from 'axios';
 import PostList from './components/PostList';
 import PostDetail from './components/PostDetail';
-import Form from './components/Form';
+import CreatePost from './components/CreatePost';
 
 interface Post {
   id: number;
@@ -39,7 +39,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PostList posts={posts} onRemove={removePost} />} />
         <Route path="/detail/:id" element={<PostDetail posts={posts} />} />
-        <Route path="/create" element={<Form />} />
+        <Route path="/create" element={<CreatePost />} />
       </Routes>
     </BrowserRouter>
   );

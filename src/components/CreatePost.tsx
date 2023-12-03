@@ -9,7 +9,7 @@ interface FormState {
   image_url: string;
 }
 
-const Form = () => {
+const CreatePost = () => {
   const [inputValues, setInputValues] = useState<FormState>({
     title: '',
     content: '',
@@ -41,4 +41,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default CreatePost;
