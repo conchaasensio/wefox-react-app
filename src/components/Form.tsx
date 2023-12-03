@@ -17,12 +17,12 @@ const Form = () => {
     long: '',
     image_url: '',
   });
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const createPost = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    axios.post('http://localhost:3000/api/v1/posts', inputValues).then((response) => {});
+    axios.post('http://localhost:3000/api/v1/posts', inputValues);
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const updateInputValues = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInputValues({
       ...inputValues,
       [event.target.name]: event.target.value,
@@ -31,10 +31,10 @@ const Form = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} value={inputValues.title} type="text" name="title" placeholder="title" />
-        <textarea onChange={handleChange} value={inputValues.content} name="content" placeholder="content" />
-        <input onChange={handleChange} value={inputValues.image_url} name="image_url" placeholder="image" />
+      <form onSubmit={createPost}>
+        <input onChange={updateInputValues} value={inputValues.title} type="text" name="title" placeholder="title" />
+        <textarea onChange={updateInputValues} value={inputValues.content} name="content" placeholder="content" />
+        <input onChange={updateInputValues} value={inputValues.image_url} name="image_url" placeholder="image" />
         <button>Save new post</button>
       </form>
     </div>
