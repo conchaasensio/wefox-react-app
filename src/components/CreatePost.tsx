@@ -34,6 +34,20 @@ const CreatePost = () => {
       <form onSubmit={createPost}>
         <input onChange={updateInputValues} value={inputValues.title} type="text" name="title" placeholder="title" />
         <textarea onChange={updateInputValues} value={inputValues.content} name="content" placeholder="content" />
+        <input
+          onChange={updateInputValues}
+          value={inputValues.lat}
+          type="text"
+          name="latitude"
+          placeholder="latitude"
+        />
+        <input
+          onChange={updateInputValues}
+          value={inputValues.long}
+          type="text"
+          name="longitude"
+          placeholder="longitude"
+        />
         <input onChange={updateInputValues} value={inputValues.image_url} name="image_url" placeholder="image" />
         <button>Save new post</button>
       </form>

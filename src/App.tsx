@@ -5,10 +5,13 @@ import axios from 'axios';
 import ListPost from './components/ListPost';
 import ShowPost from './components/ShowPost';
 import CreatePost from './components/CreatePost';
+import UpdatePost from './components/UpdatePost';
 
 interface Post {
   id: number;
   title: string;
+  lat: string;
+  long: string;
   content: string;
   image_url: string;
 }
@@ -40,6 +43,7 @@ function App() {
         <Route path="/" element={<ListPost posts={posts} onRemove={removePost} />} />
         <Route path="/show/:id" element={<ShowPost posts={posts} />} />
         <Route path="/create" element={<CreatePost />} />
+        <Route path="/update/:id" element={<UpdatePost posts={posts} />} />
       </Routes>
     </BrowserRouter>
   );
