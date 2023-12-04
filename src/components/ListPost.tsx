@@ -19,19 +19,20 @@ export default function ListPost({ posts, onRemove }: Props) {
     onRemove(id);
   };
 
-  const htmlCode = posts.map((post: any) => {
-    return (
-      <li key={post.id}>
-        <p>{post.title}</p>
-        <button onClick={() => removePost(post.id)}>Delete</button>
-        <button onClick={() => navigate(`/show/${post.id}`)}>More details</button>
-      </li>
-    );
-  });
-
   return (
     <div>
-      <ul>{htmlCode}</ul>
+      <ul>
+        {posts &&
+          posts.map((post: any) => {
+            return (
+              <li key={post.id}>
+                <p>{post.title}</p>
+                <button onClick={() => removePost(post.id)}>Delete</button>
+                <button onClick={() => navigate(`/show/${post.id}`)}>More details</button>
+              </li>
+            );
+          })}
+      </ul>
       <button onClick={() => navigate('/create')}>Create post</button>
     </div>
   );
