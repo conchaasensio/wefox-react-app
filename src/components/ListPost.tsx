@@ -27,7 +27,7 @@ export default function ListPost({ posts, onRemove }: Props) {
       {posts &&
         posts.map((post: any) => {
           return (
-            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            <List>
               <ListItem>
                 <ListItemAvatar>
                   <Avatar>
@@ -39,13 +39,15 @@ export default function ListPost({ posts, onRemove }: Props) {
                   <DeleteIcon onClick={() => removePost(post.id)} />
                 </IconButton>
                 <IconButton aria-label="read more">
-                  <ReadMoreIcon onClick={() => removePost(post.id)} />
+                  <ReadMoreIcon onClick={() => navigate(`/show/${post.id}`)} />
                 </IconButton>
               </ListItem>
             </List>
           );
         })}
-      <Button variant="contained">Create Post</Button>
+      <Button variant="contained" onClick={() => navigate('/create')}>
+        Create post
+      </Button>
     </>
   );
 }
