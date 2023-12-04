@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 interface InitialState {
@@ -49,7 +49,7 @@ function UpdatePost({ posts }: Props) {
       let post = posts.find((post) => post.id === parseInt(id));
       if (post) setInputValues(post);
     }
-  }, [id]);
+  }, [id, posts]);
 
   if (id === undefined) {
     return <p>You need to specify an id</p>;
