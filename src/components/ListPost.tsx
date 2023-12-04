@@ -11,7 +11,7 @@ interface Props {
   onRemove: (id: number) => void;
 }
 
-export default function PropList({ posts, onRemove }: Props) {
+export default function ListPost({ posts, onRemove }: Props) {
   const navigate = useNavigate();
 
   const removePost = (id: number) => {
@@ -24,7 +24,7 @@ export default function PropList({ posts, onRemove }: Props) {
       <li key={post.id}>
         <p>{post.title}</p>
         <button onClick={() => removePost(post.id)}>Delete</button>
-        <button onClick={() => navigate(`/detail/${post.id}`)}>More details</button>
+        <button onClick={() => navigate(`/show/${post.id}`)}>More details</button>
       </li>
     );
   });

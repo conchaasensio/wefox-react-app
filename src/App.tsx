@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
-import PostList from './components/PostList';
-import PostDetail from './components/PostDetail';
+import ListPost from './components/ListPost';
+import ShowPost from './components/ShowPost';
 import CreatePost from './components/CreatePost';
 
 interface Post {
@@ -37,8 +37,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<PostList posts={posts} onRemove={removePost} />} />
-        <Route path="/detail/:id" element={<PostDetail posts={posts} />} />
+        <Route path="/" element={<ListPost posts={posts} onRemove={removePost} />} />
+        <Route path="/show/:id" element={<ShowPost posts={posts} />} />
         <Route path="/create" element={<CreatePost />} />
       </Routes>
     </BrowserRouter>

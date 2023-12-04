@@ -9,7 +9,7 @@ interface Props {
   }>;
 }
 
-export default function PostDetail({ posts }: Props) {
+export default function ShowPost({ posts }: Props) {
   const { id } = useParams();
   if (id === undefined) {
     return <p>You need to specify an id</p>;
