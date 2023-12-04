@@ -19,7 +19,9 @@ const CreatePost = () => {
   });
   const createPost = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    axios.post('http://localhost:3000/api/v1/posts', inputValues);
+    axios
+      .post('http://localhost:3000/api/v1/posts', inputValues)
+      .then((response) => (window.location.href = `/show/${response.data.id}`));
   };
 
   const updateInputValues = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -34,22 +36,10 @@ const CreatePost = () => {
       <form onSubmit={createPost}>
         <input onChange={updateInputValues} value={inputValues.title} type="text" name="title" placeholder="title" />
         <textarea onChange={updateInputValues} value={inputValues.content} name="content" placeholder="content" />
-        <input
-          onChange={updateInputValues}
-          value={inputValues.lat}
-          type="text"
-          name="latitude"
-          placeholder="latitude"
-        />
-        <input
-          onChange={updateInputValues}
-          value={inputValues.long}
-          type="text"
-          name="longitude"
-          placeholder="longitude"
-        />
+        <input onChange={updateInputValues} value={inputValues.lat} type="text" name="lat" placeholder="latitude" />
+        <input onChange={updateInputValues} value={inputValues.long} type="text" name="long" placeholder="longitude" />
         <input onChange={updateInputValues} value={inputValues.image_url} name="image_url" placeholder="image" />
-        <button>Save new post</button>
+        <button>Create post</button>
       </form>
     </div>
   );
