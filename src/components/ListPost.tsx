@@ -1,3 +1,6 @@
+import { Avatar, Button, IconButton, List, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,20 +23,29 @@ export default function ListPost({ posts, onRemove }: Props) {
   };
 
   return (
-    <div>
-      <ul>
-        {posts &&
-          posts.map((post: any) => {
-            return (
-              <li key={post.id}>
-                <p>{post.title}</p>
-                <button onClick={() => removePost(post.id)}>Delete</button>
-                <button onClick={() => navigate(`/show/${post.id}`)}>More details</button>
-              </li>
-            );
-          })}
-      </ul>
-      <button onClick={() => navigate('/create')}>Create post</button>
-    </div>
+    <>
+      {posts &&
+        posts.map((post: any) => {
+          return (
+            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar>
+                    <img src={post.image_url} alt={post.title} />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary={post.title} />
+                <IconButton aria-label="delete">
+                  <DeleteIcon onClick={() => removePost(post.id)} />
+                </IconButton>
+                <IconButton aria-label="read more">
+                  <ReadMoreIcon onClick={() => removePost(post.id)} />
+                </IconButton>
+              </ListItem>
+            </List>
+          );
+        })}
+      <Button variant="contained">Create Post</Button>
+    </>
   );
 }
