@@ -1,3 +1,5 @@
+import { Button } from '@mui/material';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -32,6 +34,9 @@ export default function ShowPost({ posts }: Props) {
       <p>{post.long}</p>
       <img src={post.image_url} alt={post.title} />
       <button onClick={() => navigate(`/update/${post.id}`)}>Update post</button>
+      <Button endIcon={<ArrowBackIosNewIcon />} variant="contained" onClick={() => navigate('/')}>
+        Back
+      </Button>
     </>
   );
 }

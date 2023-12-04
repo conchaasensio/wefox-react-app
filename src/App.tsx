@@ -6,7 +6,6 @@ import ListPost from './components/ListPost';
 import ShowPost from './components/ShowPost';
 import CreatePost from './components/CreatePost';
 import UpdatePost from './components/UpdatePost';
-
 interface Post {
   id: number;
   title: string;
