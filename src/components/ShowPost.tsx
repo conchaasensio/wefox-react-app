@@ -43,7 +43,6 @@ export default function ShowPost({ posts }: Props) {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            alignItems: 'center',
           }}
         >
           <CardMedia component="div" sx={{ pt: '56.25%' }} image={post.image_url} />
