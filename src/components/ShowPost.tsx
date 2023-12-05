@@ -33,17 +33,26 @@ export default function ShowPost({ posts }: Props) {
   if (post === undefined) {
     return <p>The post does not exist</p>;
   }
-
+  const mapUrl = `https://maps.google.com/maps?q=${post.lat},${post.long}&hl=es&z=4&output=embed`;
   return (
     <>
       <Container sx={{ py: 8 }} maxWidth="md">
-        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+        <Card
+          sx={{
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <CardMedia component="div" sx={{ pt: '56.25%' }} image={post.image_url} />
           <CardContent sx={{ flexGrow: 1 }}>
             <Typography gutterBottom variant="h5" component="h2">
               {post.title}
             </Typography>
             <Typography>{post.content}</Typography>
+            <iframe title="Map" src={mapUrl}></iframe>
           </CardContent>
           <CardActions>
             <GoBackButton variant="contained" size="small" onClick={() => navigate('/')}>

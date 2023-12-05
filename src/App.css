@@ -50,3 +50,11 @@ form button {
   color: #fff;
   align-self: center;
 }
+
+iframe {
+  align-self: center;
+  max-width: 500px;
+  max-height: 500px;
+  height: 100%;
+  width: 100%;
+}
