@@ -16,16 +16,26 @@ import {
   Typography,
   createTheme,
 } from '@mui/material';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#3d127a',
+      light: '#cec0e0',
+      dark: '#9d71dc',
+    },
+  },
+});
 
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://www.linkedin.com/in/conchaasensio/">
+        Concha Asensio
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -53,13 +63,13 @@ export default function ListPost({ posts, onRemove }: Props) {
 
   return (
     <>
-      <ThemeProvider theme={createTheme}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <AppBar position="relative">
           <Toolbar>
-            <CameraIcon sx={{ mr: 2 }} />
-            <Typography variant="h6" color="inherit" noWrap>
-              Album layout
+            <LocationOnIcon sx={{ mr: 2 }} />
+            <Typography variant="h6" noWrap>
+              wefox
             </Typography>
           </Toolbar>
         </AppBar>
@@ -67,17 +77,20 @@ export default function ListPost({ posts, onRemove }: Props) {
           <Box sx={{ bgcolor: 'background.paper', pt: 8, pb: 6 }}>
             <Container maxWidth="sm">
               <Typography component="h1" variant="h2" align="center" color="text.primary" gutterBottom>
-                Album layout
+                wefox around the world
               </Typography>
               <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                Something short and leading about the collection below—its contents, the creator, etc. Make it short and
-                sweet, but not too short so folks don&apos;t simply skip over it entirely.
+                HQ in Berlin. We have offices in Paris, Zurich, Vaduz, Vienna and Milan; a TechHub in Barcelona and we
+                are more than 1000 employees in the whole organization.
+              </Typography>
+              <Typography variant="h5" align="center" color="text.secondary" paragraph>
+                Here some of our employees share informatio about the cities where they are living. Take a look ad feel
+                free to add any kind of information or even add a new location.
               </Typography>
               <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
                 <Button variant="contained" onClick={() => navigate('/create')}>
                   Create post
                 </Button>
-                <Button variant="outlined">Secondary action</Button>
               </Stack>
             </Container>
           </Box>
@@ -114,10 +127,10 @@ export default function ListPost({ posts, onRemove }: Props) {
         <footer>
           <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
             <Typography variant="h6" align="center" gutterBottom>
-              Footer
+              Credits
             </Typography>
             <Typography variant="subtitle1" align="center" color="text.secondary" component="p">
-              Something here to put on footer
+              Made with 💜 for wefox 🦊
             </Typography>
             <Copyright />
           </Box>

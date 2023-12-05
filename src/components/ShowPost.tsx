@@ -1,7 +1,15 @@
-import { Button } from '@mui/material';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+
+const GoBackButton = styled(Button)({
+  backgroundColor: '#3d127a',
+  '&:hover': {
+    backgroundColor: '#9d71dc',
+    boxShadow: 'none',
+  },
+});
 
 interface Props {
   posts: Array<{
@@ -28,15 +36,22 @@ export default function ShowPost({ posts }: Props) {
 
   return (
     <>
-      <p>{post.title}</p>
-      <p>{post.content}</p>
-      <p>{post.lat}</p>
-      <p>{post.long}</p>
-      <img src={post.image_url} alt={post.title} />
-      <button onClick={() => navigate(`/update/${post.id}`)}>Update post</button>
-      <Button endIcon={<ArrowBackIosNewIcon />} variant="contained" onClick={() => navigate('/')}>
-        Back
-      </Button>
+      <Container sx={{ py: 8 }} maxWidth="md">
+        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+          <CardMedia component="div" sx={{ pt: '56.25%' }} image={post.image_url} />
+          <CardContent sx={{ flexGrow: 1 }}>
+            <Typography gutterBottom variant="h5" component="h2">
+              {post.title}
+            </Typography>
+            <Typography>{post.content}</Typography>
+          </CardContent>
+          <CardActions>
+            <GoBackButton variant="contained" size="small" onClick={() => navigate('/')}>
+              Go Back
+            </GoBackButton>
+          </CardActions>
+        </Card>
+      </Container>
     </>
   );
 }
