@@ -16,6 +16,9 @@ import {
   Typography,
   createTheme,
 } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -110,13 +113,17 @@ export default function ListPost({ posts, onRemove }: Props) {
                         <Typography>{post.content}</Typography>
                       </CardContent>
                       <CardActions>
-                        <Button size="small" onClick={() => navigate(`/show/${post.id}`)}>
+                        <Button
+                          size="small"
+                          startIcon={<VisibilityIcon />}
+                          onClick={() => navigate(`/show/${post.id}`)}
+                        >
                           View
                         </Button>
-                        <Button size="small" onClick={() => navigate(`/update/${post.id}`)}>
+                        <Button size="small" startIcon={<EditIcon />} onClick={() => navigate(`/update/${post.id}`)}>
                           Edit
                         </Button>
-                        <Button size="small" onClick={() => removePost(post.id)}>
+                        <Button size="small" startIcon={<DeleteIcon />} onClick={() => removePost(post.id)}>
                           Delete
                         </Button>
                       </CardActions>
