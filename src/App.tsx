@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import './App.css';
+import './styles/App.css';
 import axios from 'axios';
 import ListPost from './components/ListPost';
 import ShowPost from './components/ShowPost';
