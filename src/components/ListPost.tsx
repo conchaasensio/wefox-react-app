@@ -77,15 +77,15 @@ export default function ListPost({ posts, onRemove }: Props) {
         </AppBar>
         <main>
           <Box sx={{ bgcolor: 'background.paper', pt: 8, pb: 6 }}>
-            <Container maxWidth="sm">
+            <Container maxWidth="lg">
               <Typography component="h1" variant="h2" align="center" color="text.primary" gutterBottom>
                 wefox around the world
               </Typography>
-              <Typography variant="h5" align="center" color="text.secondary" paragraph>
+              <Typography variant="h5" align="justify" color="text.secondary" paragraph>
                 HQ in Berlin. We have offices in Paris, Zurich, Vaduz, Vienna and Milan; a TechHub in Barcelona and we
                 are more than 1000 employees in the whole organization.
               </Typography>
-              <Typography variant="h5" align="center" color="text.secondary" paragraph>
+              <Typography variant="h5" align="justify" color="text.secondary" paragraph>
                 Here some of our employees share informatio about the cities where they are living. Take a look ad feel
                 free to add any kind of information or even add a new location.
               </Typography>
@@ -96,7 +96,7 @@ export default function ListPost({ posts, onRemove }: Props) {
               </Stack>
             </Container>
           </Box>
-          <Container sx={{ py: 8 }} maxWidth="md">
+          <Container sx={{ py: 8 }} maxWidth="lg">
             <Grid container spacing={4}>
               {posts &&
                 posts.map((post) => (
