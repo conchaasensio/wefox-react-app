@@ -57,7 +57,7 @@ export default function ListPost({ posts, onRemove }: Props) {
   const navigate = useNavigate();
 
   const removePost = (id: number) => {
-    axios.delete(`http://localhost:3000/api/v1/posts/${id}`).then((response) => {});
+    axios.delete(`http://localhost:3000/api/v1/posts/${id}`);
     onRemove(id);
   };
 

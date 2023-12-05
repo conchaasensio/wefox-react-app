@@ -21,7 +21,10 @@ const CreatePost = () => {
     event.preventDefault();
     axios
       .post('http://localhost:3000/api/v1/posts', inputValues)
-      .then((response) => (window.location.href = `/show/${response.data.id}`));
+      .then((response) => (window.location.href = `/show/${response.data.id}`))
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const updateInputValues = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

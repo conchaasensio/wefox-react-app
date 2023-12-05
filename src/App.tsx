@@ -19,9 +19,14 @@ function App() {
   const [posts, setPosts] = useState<Array<Post>>([]);
 
   const fetchPosts = () => {
-    const response = axios.get('http://localhost:3000/api/v1/posts').then((response) => {
-      setPosts(response.data);
-    });
+    const response = axios
+      .get('http://localhost:3000/api/v1/posts')
+      .then((response) => {
+        setPosts(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     return response;
   };
   useEffect(() => {
