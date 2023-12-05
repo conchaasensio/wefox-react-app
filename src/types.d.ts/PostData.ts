@@ -5,6 +5,4 @@ export default interface PostData {
     content: string
     lat: string
     long: string
-    created_at?: string
-    updated_at?: string
 }
