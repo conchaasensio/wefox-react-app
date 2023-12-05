@@ -105,7 +105,14 @@ export default function ListPost({ posts, onRemove }: Props) {
                 posts.map((post) => (
                   <Grid item key={post.id} xs={12} sm={6} md={4}>
                     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                      <CardMedia component="div" sx={{ pt: '56.25%' }} image={post.image_url} />
+                      <CardMedia
+                        component="div"
+                        sx={{ pt: '56.25%' }}
+                        image={
+                          post.image_url ||
+                          'https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg'
+                        }
+                      />
                       <CardContent sx={{ flexGrow: 1 }}>
                         <Typography gutterBottom variant="h5" component="h2">
                           {post.title}

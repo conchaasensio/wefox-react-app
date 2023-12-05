@@ -45,7 +45,11 @@ export default function ShowPost({ posts }: Props) {
             justifyContent: 'center',
           }}
         >
-          <CardMedia component="div" sx={{ pt: '56.25%' }} image={post.image_url} />
+          <CardMedia
+            component="div"
+            sx={{ pt: '56.25%' }}
+            image={post.image_url || 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg'}
+          />
           <CardContent sx={{ flexGrow: 1 }}>
             <Typography gutterBottom variant="h5" component="h2">
               {post.title}
