@@ -34,9 +34,12 @@ function UpdatePost({ posts }: Props) {
 
   const updatePost = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    axios.put(`http://localhost:3000/api/v1/posts/${id}`, inputValues).catch(function (error) {
-      console.log(error);
-    });
+    axios
+      .put(`http://localhost:3000/api/v1/posts/${id}`, inputValues)
+      .then((response) => (window.location.href = `/show/${response.data.id}`))
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const updateInputValues = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
