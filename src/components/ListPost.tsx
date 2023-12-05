@@ -69,7 +69,9 @@ export default function ListPost({ posts, onRemove }: Props) {
           <Toolbar>
             <LocationOnIcon sx={{ mr: 2 }} />
             <Typography variant="h6" noWrap>
-              wefox
+              <Link underline="none" className="link" color="inherit" href="https://www.wefox.com/en-de">
+                wefox
+              </Link>
             </Typography>
           </Toolbar>
         </AppBar>
