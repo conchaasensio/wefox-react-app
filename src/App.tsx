@@ -28,7 +28,7 @@ function App() {
 
   const removePost = (id: number) => {
     setPosts(
-      posts.filter((post: any) => {
+      posts.filter((post: PostData) => {
         return post.id !== id;
       })
     );
