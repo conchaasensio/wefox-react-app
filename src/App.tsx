@@ -2,21 +2,14 @@ import { useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './styles/App.css';
 import axios from 'axios';
+import PostData from './types.d.ts/PostData';
 import ListPost from './components/ListPost';
 import ShowPost from './components/ShowPost';
 import CreatePost from './components/CreatePost';
 import UpdatePost from './components/UpdatePost';
-interface Post {
-  id: number;
-  title: string;
-  lat: string;
-  long: string;
-  content: string;
-  image_url: string;
-}
 
 function App() {
-  const [posts, setPosts] = useState<Array<Post>>([]);
+  const [posts, setPosts] = useState<Array<PostData>>([]);
 
   const fetchPosts = () => {
     const response = axios
