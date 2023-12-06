@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-const API_ENDPOINT = process.env['REACT_APP_API_ENDPOINT'] || 'http://localhost:3000/api/v1/posts';
-
+import { API_ENDPOINT } from '../config';
 interface FormState {
   title: string;
   content: string;

@@ -22,7 +22,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-const API_ENDPOINT = process.env['REACT_APP_API_ENDPOINT'] || 'http://localhost:3000/api/v1/posts';
+import { API_ENDPOINT } from '../config';
 
 const theme = createTheme({
   palette: {

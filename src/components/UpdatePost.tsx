@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-const API_ENDPOINT = process.env['REACT_APP_API_ENDPOINT'] || 'http://localhost:3000/api/v1/posts';
+import { API_ENDPOINT } from '../config';
 
 interface InitialState {
   title: string;
