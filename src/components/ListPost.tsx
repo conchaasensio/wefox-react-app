@@ -85,12 +85,12 @@ export default function ListPost({ posts, onRemove }: Props) {
                 wefox around the world
               </Typography>
               <Typography variant="h5" align="justify" color="text.secondary" paragraph>
-                HQ in Berlin. We have offices in Paris, Zurich, Vaduz, Vienna and Milan; a TechHub in Barcelona and we
-                are more than 1000 employees in the whole organization.
+                With HQ in Berlin, we have offices in Paris, Zurich, Vaduz, Vienna and Milan; a TechHub in Barcelona and
+                we are more than 1000 employees in the whole organization.
               </Typography>
               <Typography variant="h5" align="justify" color="text.secondary" paragraph>
-                Here some of our employees share informatio about the cities where they are living. Take a look ad feel
-                free to add any kind of information or even add a new location.
+                Here some of our employees share information about the cities where they are living. Take a look and
+                feel free to add any kind of information or even add a new location.
               </Typography>
               <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
                 <Button variant="contained" onClick={() => navigate('/create')}>
