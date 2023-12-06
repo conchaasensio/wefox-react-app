@@ -9,3 +9,10 @@ describe('The Home Page', () => {
     cy.get('.MuiTypography-h5').should('have.length.gt', 1);
   });
 });
+
+describe('The user should be able to', () => {
+  it('view a post detail', () => {
+    cy.visit('/');
+    cy.get(':nth-child(1) > .MuiPaper-root > .MuiCardActions-root > :nth-child(1)').click();
+  });
+});
