@@ -23,6 +23,8 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { API_ENDPOINT } from '../config';
+import PostData from '../types.d.ts/PostData';
+import { useEffect, useState } from 'react';
 
 const theme = createTheme({
   palette: {
@@ -47,22 +49,32 @@ function Copyright() {
   );
 }
 
-interface Props {
-  posts: Array<{
-    id: number;
-    title: string;
-    content: string;
-    image_url: string;
-  }>;
-  onRemove: (id: number) => void;
-}
-
-export default function ListPost({ posts, onRemove }: Props) {
+export default function ListPost() {
   const navigate = useNavigate();
+  const [posts, setPosts] = useState<Array<PostData>>([]);
+
+  const getPosts = () => {
+    const response = axios
+      .get(API_ENDPOINT)
+      .then((response) => {
+        setPosts(response.data);
+      })
+      .catch(function (error) {
+        alert(error);
+      });
+    return response;
+  };
+  useEffect(() => {
+    getPosts();
+  }, []);
 
   const removePost = (id: number) => {
     axios.delete(`${API_ENDPOINT}/${id}`);
-    onRemove(id);
+    setPosts(
+      posts.filter((post: PostData) => {
+        return post.id !== id;
+      })
+    );
   };
 
   return (
