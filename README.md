@@ -13,7 +13,7 @@ This project is a web app builded in **React** which must runs locally the given
     - [Pre-requeriments](#pre-requeriments)
     - [➡️ Launch the backend and the frontend](#️-launch-the-backend-and-the-frontend)
   - [🌐 View the App deployed in Netlify.](#-view-the-app-deployed-in-netlify)
-  - [🚀 How to run the Tests.](#-how-to-run-the-tests)
+  - [🧪 How to run the Tests.](#-how-to-run-the-tests)
   - [🧱 Project structure](#-project-structure)
   - [⚒️ Process](#️-process)
     - [✳️ Create a React Project](#️-create-a-react-project)
@@ -55,7 +55,7 @@ You have to install the frontend dependencies.
 > $ npm install
 > ```
 
-Run the frontend app. 
+Run the frontend app.
 > ```console
 > $ npm start
 > ```
@@ -67,7 +67,8 @@ Navigate to the frontend
 
 ## 🌐 View the App deployed in Netlify.
 
-ℹ️ The backend is not deployed so you need to run the backend locally.
+> [!WARNING]
+> The backend is not deployed so you need to run the backend locally.
 
 > ```console
 > $ docker compose up
@@ -77,7 +78,7 @@ Should you like to take a look to the deployed app, [here you have the link](htt
 ***
 
 
-## 🚀 How to run the Tests.
+## 🧪 How to run the Tests.
 
 
 Finally, to run the tests you need to introduce the following commands on your terminal:
