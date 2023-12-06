@@ -33,7 +33,9 @@ This project is a web app builded in **React** which must runs locally the given
 
 ### Pre-requeriments
 
-You need to have [```Node```](https://nodejs.org/es/) and [```Docker```](https://www.docker.com/) previously installed in your computer.
+> [!IMPORTANT]
+> You need to have [```Node```](https://nodejs.org/es/) and [```Docker```](https://www.docker.com/) previously installed in your computer.
+
 
 To start using this project, clone this repo into a new directory and move inside it.
 > ```console
