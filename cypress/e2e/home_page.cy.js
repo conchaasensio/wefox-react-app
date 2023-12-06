@@ -32,14 +32,12 @@ describe('The user should be able to', () => {
   it('edit a post', () => {
     cy.visit('/');
     cy.get(':nth-child(1) > .MuiPaper-root > .MuiCardActions-root > :nth-child(2)').click();
-    cy.get('textarea')
-      .should(
-        'have.value',
-        'Madrid is the capital of Spain and the largest municipality in both the Community of Madrid and Spain as a whole.'
-      )
-      .clear()
-      .type('Here you can find one of the biggest urban parks in Spain.')
-      .should('have.value', 'Here you can find one of the biggest urban parks in Spain.');
+    cy.get('[name="title"]').should('have.value', 'Madrid').clear().type('Madrid').should('have.value', 'Madrid');
     cy.get('button').click();
+  });
+
+  it('delete a post', () => {
+    cy.visit('/');
+    cy.get(':nth-child(4) > .MuiPaper-root > .MuiCardActions-root > :nth-child(3)').click();
   });
 });
