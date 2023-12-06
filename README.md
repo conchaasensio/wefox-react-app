@@ -2,29 +2,31 @@
 
 This project is a web app builded in **React** which must runs locally the given API using docker-compose and list, show, create, update and remove the resource comming from the Dockerized API.
 
-## 🌐 Link to the App.
-
-Should you like to take a look to the deployed app, [here you have the link](https://wefox-challenge-concha.netlify.app/).
-
-> ℹ️ Please note that the server need to be up.
-
- You need to introduce this command in your terminal to run up the server:
-> ```console
-> $ docker compose up
-> ```
-
-
+<image src="src/assets/Homepage.png">
 
 ---
 ## 🗂️ Content
 
-1. [Project Structure](#-project-structure)
-2. [Process](#️-process)
-3. [How to run the App](#-how-to-run-the-app)
-   1. [Pre-requeriments](#pre-requeriments)
-   2. [Node](#️-node)
-   3. [Docker](#-docker)
-4. [Author](#-author)
+- [💜 🦊 wefox front challenge](#--wefox-front-challenge)
+  - [🗂️ Content](#️-content)
+  - [🚀 How to run the App.](#-how-to-run-the-app)
+    - [Pre-requeriments](#pre-requeriments)
+    - [➡️ Launch the backend and the frontend](#️-launch-the-backend-and-the-frontend)
+  - [🌐 View the App deployed in Netlify.](#-view-the-app-deployed-in-netlify)
+  - [🚀 How to run the Tests.](#-how-to-run-the-tests)
+  - [🧱 Project structure](#-project-structure)
+  - [⚒️ Process](#️-process)
+    - [✳️ Create a React Project](#️-create-a-react-project)
+    - [✳️ Run locally the API using docker-compose](#️-run-locally-the-api-using-docker-compose)
+    - [✳️ Using React Hooks](#️-using-react-hooks)
+    - [✳️ React Router](#️-react-router)
+    - [✳️ TypeScript](#️-typescript)
+    - [✳️ Material UI](#️-material-ui)
+    - [✳️ Showing a map](#️-showing-a-map)
+    - [✳️ Testing with React Testing Library](#️-testing-with-react-testing-library)
+    - [✳️ Testing with cypress](#️-testing-with-cypress)
+  - [💪 Possible improvements](#-possible-improvements)
+  - [👩‍💻 Author](#-author)
 ***
 
 ## 🚀 How to run the App.
@@ -33,36 +35,55 @@ Should you like to take a look to the deployed app, [here you have the link](htt
 
 You need to have [```Node```](https://nodejs.org/es/) and [```Docker```](https://www.docker.com/) previously installed in your computer.
 
-To start using this project, clone this repo to a new directory.
+To start using this project, clone this repo into a new directory and move inside it.
 > ```console
 >  $ git clone https://github.com/conchaasensio/wefox-frontend-challenge.git
+>  $ cd wefox-frontend-challenge
 > ```
 
-### ➡️ Launch
+### ➡️ Launch the backend and the frontend
 
-You have to run npm install in order to install the necesary dependencies.
-> ```console
-> $ npm install
-> ```
-
-Once we have it installed the dependencies, we introduce this command in our terminal to run the server:
+To run the backend introduce this command in your terminal to run the server:
 > ```console
 > $ docker compose up
 > ```
 
-Once the server is up you are ready to run the app with ```npm start```. 
+You have to install the frontend dependencies.
+> ```console
+> $ npm install
+> ```
+
+Run the frontend app. 
 > ```console
 > $ npm start
 > ```
 
-> 👉 Open http://localhost:3006 to view in the browser
+Navigate to the frontend
+
+👉 Open http://localhost:3006 to view in the browser
+***
+
+## 🌐 View the App deployed in Netlify.
+
+ℹ️ The backend is not deployed so you need to run the backend locally.
+
+> ```console
+> $ docker compose up
+> ```
+
+Should you like to take a look to the deployed app, [here you have the link](https://wefox-challenge-concha.netlify.app/).
+***
+
+
+## 🚀 How to run the Tests.
+
 
 Finally, to run the tests you need to introduce the following commands on your terminal:
 ```console
 $ npm test
 ```
 
-To run the e2e tests use this command:
+To run the cypress tests use this command:
 ```console
 $ npm run cypress:open
 ```
