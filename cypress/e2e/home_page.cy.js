@@ -15,4 +15,31 @@ describe('The user should be able to', () => {
     cy.visit('/');
     cy.get(':nth-child(1) > .MuiPaper-root > .MuiCardActions-root > :nth-child(1)').click();
   });
+
+  it('create a post', () => {
+    cy.visit('/');
+    cy.get('.MuiStack-root > .MuiButtonBase-root').click();
+    cy.get('[name="title"]').type('Almería').should('have.value', 'Almería');
+    cy.get('textarea')
+      .type('Almería is an Andalusian city where you can find the best beaches.')
+      .should('have.value', 'Almería is an Andalusian city where you can find the best beaches.');
+    cy.get('[name="image_url"]')
+      .type('https://www.droomhuisspanje.nl/images/articulos/25/l_mojacar.jpg')
+      .should('have.value', 'https://www.droomhuisspanje.nl/images/articulos/25/l_mojacar.jpg');
+    cy.get('button').click();
+  });
+
+  it('edit a post', () => {
+    cy.visit('/');
+    cy.get(':nth-child(1) > .MuiPaper-root > .MuiCardActions-root > :nth-child(2)').click();
+    cy.get('textarea')
+      .should(
+        'have.value',
+        'Madrid is the capital of Spain and the largest municipality in both the Community of Madrid and Spain as a whole.'
+      )
+      .clear()
+      .type('Here you can find one of the biggest urban parks in Spain.')
+      .should('have.value', 'Here you can find one of the biggest urban parks in Spain.');
+    cy.get('button').click();
+  });
 });
