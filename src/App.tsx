@@ -11,7 +11,7 @@ import UpdatePost from './components/UpdatePost';
 function App() {
   const [posts, setPosts] = useState<Array<PostData>>([]);
 
-  const fetchPosts = () => {
+  const getPosts = () => {
     const response = axios
       .get('http://localhost:3000/api/v1/posts')
       .then((response) => {
@@ -23,7 +23,7 @@ function App() {
     return response;
   };
   useEffect(() => {
-    fetchPosts();
+    getPosts();
   }, []);
 
   const removePost = (id: number) => {
