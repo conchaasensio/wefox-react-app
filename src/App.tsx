@@ -7,13 +7,14 @@ import ListPost from './components/ListPost';
 import ShowPost from './components/ShowPost';
 import CreatePost from './components/CreatePost';
 import UpdatePost from './components/UpdatePost';
+const API_ENDPOINT = process.env['REACT_APP_API_ENDPOINT'] || 'http://localhost:3000/api/v1/posts';
 
 function App() {
   const [posts, setPosts] = useState<Array<PostData>>([]);
 
   const getPosts = () => {
     const response = axios
-      .get('http://localhost:3000/api/v1/posts')
+      .get(API_ENDPOINT)
       .then((response) => {
         setPosts(response.data);
       })

@@ -22,6 +22,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+const API_ENDPOINT = process.env['REACT_APP_API_ENDPOINT'] || 'http://localhost:3000/api/v1/posts';
 
 const theme = createTheme({
   palette: {
@@ -60,7 +61,7 @@ export default function ListPost({ posts, onRemove }: Props) {
   const navigate = useNavigate();
 
   const removePost = (id: number) => {
-    axios.delete(`http://localhost:3000/api/v1/posts/${id}`);
+    axios.delete(`${API_ENDPOINT}/${id}`);
     onRemove(id);
   };
 

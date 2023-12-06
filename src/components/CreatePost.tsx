@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+const API_ENDPOINT = process.env['REACT_APP_API_ENDPOINT'] || 'http://localhost:3000/api/v1/posts';
 
 interface FormState {
   title: string;
@@ -20,7 +21,7 @@ const CreatePost = () => {
   const createPost = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     axios
-      .post('http://localhost:3000/api/v1/posts', inputValues)
+      .post(API_ENDPOINT, inputValues)
       .then((response) => (window.location.href = `/show/${response.data.id}`))
       .catch(function (error) {
         alert(error);
