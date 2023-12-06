@@ -39,7 +39,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<ListPost posts={posts} onRemove={removePost} />} />
-        <Route path="/show/:id" element={<ShowPost posts={posts} />} />
+        <Route path="/show/:id" element={<ShowPost />} />
         <Route path="/create" element={<CreatePost />} />
         <Route path="/update/:id" element={<UpdatePost posts={posts} />} />
       </Routes>

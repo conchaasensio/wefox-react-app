@@ -1,7 +1,11 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { API_ENDPOINT } from '../config';
+import axios from 'axios';
+import PostData from '../types.d.ts/PostData';
 
 const GoBackButton = styled(Button)({
   backgroundColor: '#3d127a',
@@ -11,25 +15,28 @@ const GoBackButton = styled(Button)({
   },
 });
 
-interface Props {
-  posts: Array<{
-    id: number;
-    title: string;
-    lat: string;
-    long: string;
-    content: string;
-    image_url: string;
-  }>;
-}
+export default function ShowPost() {
+  const [post, setPost] = useState<PostData | undefined>(undefined);
 
-export default function ShowPost({ posts }: Props) {
   const { id } = useParams();
   const navigate = useNavigate();
+  const loadPost = () => {
+    axios
+      .get(`${API_ENDPOINT}/${id}`)
+      .then((response) => {
+        setPost(response.data);
+      })
+      .catch(function (error) {
+        alert(error);
+      });
+  };
+  useEffect(() => {
+    loadPost();
+  }, []);
   if (id === undefined) {
     return <p>You need to specify an id</p>;
   }
 
-  const post = posts.find((post) => post.id === parseInt(id));
   if (post === undefined) {
     return <p>The post does not exist</p>;
   }
