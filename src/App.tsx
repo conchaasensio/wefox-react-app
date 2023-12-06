@@ -18,7 +18,7 @@ function App() {
         setPosts(response.data);
       })
       .catch(function (error) {
-        console.log(error);
+        alert(error);
       });
     return response;
   };

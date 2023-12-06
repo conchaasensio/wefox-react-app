@@ -38,7 +38,7 @@ function UpdatePost({ posts }: Props) {
       .put(`http://localhost:3000/api/v1/posts/${id}`, inputValues)
       .then((response) => (window.location.href = `/show/${response.data.id}`))
       .catch(function (error) {
-        console.log(error);
+        alert(error);
       });
   };
 
