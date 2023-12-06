@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { API_ENDPOINT } from '../config';
+import PostData from '../types.d.ts/PostData';
 
 interface InitialState {
   title: string;
@@ -11,18 +12,7 @@ interface InitialState {
   image_url: string;
 }
 
-interface Props {
-  posts: Array<{
-    id: number;
-    title: string;
-    content: string;
-    lat: string;
-    long: string;
-    image_url: string;
-  }>;
-}
-
-function UpdatePost({ posts }: Props) {
+function UpdatePost() {
   const { id } = useParams();
 
   const [inputValues, setInputValues] = useState<InitialState>({
@@ -32,6 +22,20 @@ function UpdatePost({ posts }: Props) {
     long: '',
     image_url: '',
   });
+
+  const loadPost = () => {
+    axios
+      .get(`${API_ENDPOINT}/${id}`)
+      .then((response) => {
+        setInputValues(response.data);
+      })
+      .catch(function (error) {
+        alert(error);
+      });
+  };
+  useEffect(() => {
+    loadPost();
+  }, []);
 
   const updatePost = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -49,13 +53,6 @@ function UpdatePost({ posts }: Props) {
       [event.target.name]: event.target.value,
     });
   };
-
-  useEffect(() => {
-    if (id) {
-      let post = posts.find((post) => post.id === parseInt(id));
-      if (post) setInputValues(post);
-    }
-  }, [id, posts]);
 
   if (id === undefined) {
     return <p>You need to specify an id</p>;

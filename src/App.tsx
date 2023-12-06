@@ -41,7 +41,7 @@ function App() {
         <Route path="/" element={<ListPost posts={posts} onRemove={removePost} />} />
         <Route path="/show/:id" element={<ShowPost />} />
         <Route path="/create" element={<CreatePost />} />
-        <Route path="/update/:id" element={<UpdatePost posts={posts} />} />
+        <Route path="/update/:id" element={<UpdatePost />} />
       </Routes>
     </BrowserRouter>
   );
