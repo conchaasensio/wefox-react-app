@@ -1,4 +1,4 @@
-# 💜 🦊 wefox front challenge
+# 💜 🦊 wefox around the world
 
 This project is a web app builded in **React** which must runs locally the given API using docker-compose and list, show, create, update and remove the resource comming from the Dockerized API.
 
@@ -7,7 +7,7 @@ This project is a web app builded in **React** which must runs locally the given
 ---
 ## 🗂️ Content
 
-- [💜 🦊 wefox front challenge](#--wefox-front-challenge)
+- [💜 🦊 wefox around the world](#--wefox-around-the-world)
   - [🗂️ Content](#️-content)
   - [🚀 How to run the App.](#-how-to-run-the-app)
     - [Pre-requeriments](#pre-requeriments)
